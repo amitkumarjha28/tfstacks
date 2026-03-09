@@ -39,7 +39,7 @@ deployment "qa" {
       ManagedBy   = "terraform"
       Stack       = "tfstacks"
     }
-    instance_name          = "qa-app-server"
+    instance_name          = "qa-app-server2"
     ami_id                 = null
     instance_type          = "t2.micro"
     subnet_id              = null
