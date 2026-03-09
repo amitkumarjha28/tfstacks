@@ -30,8 +30,8 @@ deployment "prod" {
 deployment "qa" {
   inputs = {
     environment            = "qa"
-    region                 = "us-east-1"
-    regions                = ["us-east-1"]
+    region                 = "us-west-2"
+    regions                = ["us-west-2"]
     role_arn               = "arn:aws:iam::795939425714:role/tfc-hashicorp-wwtfo-demo-platform-prod-hc-amit-kumarjha-role"
     identity_token         = identity_token.aws.jwt
     default_tags           = {
@@ -41,7 +41,7 @@ deployment "qa" {
     }
     instance_name          = "qa-app-server"
     ami_id                 = null
-    instance_type          = "t3.micro"
+    instance_type          = "t2.micro"
     subnet_id              = null
     vpc_id                 = null
     allowed_cidr_blocks    = ["0.0.0.0/0"]
