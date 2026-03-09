@@ -28,8 +28,8 @@ deployment "prod" {
 deployment "qa" {
   inputs = {
     environment            = "qa"
-    region                 = "us-west-2"
-    regions                = ["us-west-2"]
+    region                 = "us-east-1"
+    regions                = ["us-east-1"]
     role_arn               = "arn:aws:iam::795939425714:role/tfc-hashicorp-wwtfo-demo-platform-qa-hc-amit-kumarjha-role"
     identity_token         = identity_token.aws.jwt
     default_tags           = {
