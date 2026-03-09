@@ -10,9 +10,21 @@ required_providers {
   }
 }
 
+
 provider "aws" "this" {
+  for_each = var.regions
+
   config {
-    region = var.region
+    region = each.value
+
+    assume_role_with_web_identity {
+      role_arn           = var.role_arn
+      web_identity_token = var.identity_token
+    }
+
+    default_tags {
+      tags = var.default_tags
+    }
   }
 }
 
