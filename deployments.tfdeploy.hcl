@@ -18,6 +18,8 @@ deployment "prod" {
     ami_id                 = null
     instance_type          = "t3.micro"
     subnet_id              = null
+    vpc_id                 = null
+    allowed_cidr_blocks    = ["0.0.0.0/0"]
     vpc_security_group_ids = []
     bucket_name            = null
     bucket_name_prefix     = "tfstacks-prod-amitjha28-demo"
@@ -41,6 +43,8 @@ deployment "qa" {
     ami_id                 = null
     instance_type          = "t3.micro"
     subnet_id              = null
+    vpc_id                 = null
+    allowed_cidr_blocks    = ["0.0.0.0/0"]
     vpc_security_group_ids = []
     bucket_name            = null
     bucket_name_prefix     = "tfstacks-qa-amitjha28-demo"

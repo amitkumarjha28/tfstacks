@@ -13,6 +13,8 @@ component "ec2" {
     ami_id                 = var.ami_id
     instance_type          = var.instance_type
     subnet_id              = var.subnet_id
+    vpc_id                 = var.vpc_id
+    allowed_cidr_blocks    = var.allowed_cidr_blocks
     vpc_security_group_ids = var.vpc_security_group_ids
     tags                   = merge(local.common_tags, { Environment = var.environment })
   }

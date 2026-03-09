@@ -20,6 +20,18 @@ variable "subnet_id" {
   default     = null
 }
 
+variable "vpc_id" {
+  description = "VPC ID where the managed security group should be created. If null, default VPC is used"
+  type        = string
+  default     = null
+}
+
+variable "allowed_cidr_blocks" {
+  description = "CIDR blocks allowed to access port 22 on the managed security group"
+  type        = list(string)
+  default     = ["0.0.0.0/0"]
+}
+
 variable "vpc_security_group_ids" {
   description = "List of security group IDs for the EC2 instance"
   type        = list(string)
