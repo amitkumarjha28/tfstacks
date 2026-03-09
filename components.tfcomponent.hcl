@@ -18,7 +18,7 @@ component "ec2" {
   }
 
   providers = {
-    aws = provider.aws.this
+    aws = provider.aws.configurations[var.region]
   }
 }
 
@@ -34,7 +34,7 @@ component "s3" {
   }
 
   providers = {
-    aws    = provider.aws.this
+    aws    = provider.aws.configurations[var.region]
     random = provider.random.this
   }
 }

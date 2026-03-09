@@ -1,7 +1,19 @@
+identity_token "aws" {
+  audience = ["aws.workload.identity"]
+}
+
 deployment "prod" {
   inputs = {
     environment            = "prod"
     region                 = "us-east-1"
+    regions                = ["us-east-1"]
+    role_arn               = "arn:aws:iam::<account-id>:role/<hcp-terraform-role>"
+    identity_token         = identity_token.aws.jwt
+    default_tags           = {
+      Environment = "prod"
+      ManagedBy   = "terraform"
+      Stack       = "tfstacks"
+    }
     instance_name          = "prod-app-server"
     ami_id                 = null
     instance_type          = "t3.micro"
@@ -17,6 +29,14 @@ deployment "qa" {
   inputs = {
     environment            = "qa"
     region                 = "us-west-2"
+    regions                = ["us-west-2"]
+    role_arn               = "arn:aws:iam::<account-id>:role/<hcp-terraform-role>"
+    identity_token         = identity_token.aws.jwt
+    default_tags           = {
+      Environment = "qa"
+      ManagedBy   = "terraform"
+      Stack       = "tfstacks"
+    }
     instance_name          = "qa-app-server"
     ami_id                 = null
     instance_type          = "t3.micro"

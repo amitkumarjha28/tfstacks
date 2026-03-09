@@ -6,13 +6,16 @@ required_providers {
 
   random = {
     source  = "hashicorp/random"
-    version = "~> 3.6"
+    version = "~> 3.0"
   }
 }
 
+locals {
+  aws_regions = length(var.regions) > 0 ? var.regions : toset([var.region])
+}
 
-provider "aws" "this" {
-  for_each = var.regions
+provider "aws" "configurations" {
+  for_each = local.aws_regions
 
   config {
     region = each.value
