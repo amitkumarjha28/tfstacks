@@ -6,7 +6,7 @@ resource "random_string" "bucket_suffix" {
 }
 
 locals {
-  normalized_region    = regexreplace(lower(var.region), "[^a-z0-9-]", "-")
+  normalized_region    = replace(lower(var.region), "/[^a-z0-9-]/", "-")
   resolved_bucket_name = var.bucket_name != null ? var.bucket_name : "${var.bucket_name_prefix}-${local.normalized_region}-${random_string.bucket_suffix.result}"
 }
 

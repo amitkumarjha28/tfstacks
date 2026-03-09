@@ -14,7 +14,7 @@ component "ec2" {
     instance_type          = var.instance_type
     subnet_id              = var.subnet_id
     vpc_security_group_ids = var.vpc_security_group_ids
-    tags                   = merge(local.common_tags, { Environment = deployment.name })
+    tags                   = merge(local.common_tags, { Environment = var.environment })
   }
 
   providers = {
@@ -30,7 +30,7 @@ component "s3" {
     bucket_name_prefix = var.bucket_name_prefix
     region             = var.region
     force_destroy      = var.bucket_force_destroy
-    tags               = merge(local.common_tags, { Environment = deployment.name })
+    tags               = merge(local.common_tags, { Environment = var.environment })
   }
 
   providers = {

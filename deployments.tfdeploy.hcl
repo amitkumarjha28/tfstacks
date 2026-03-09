@@ -1,5 +1,6 @@
 deployment "prod" {
   inputs = {
+    environment            = "prod"
     region                 = "us-east-1"
     instance_name          = "prod-app-server"
     ami_id                 = null
@@ -14,6 +15,7 @@ deployment "prod" {
 
 deployment "qa" {
   inputs = {
+    environment            = "qa"
     region                 = "us-west-2"
     instance_name          = "qa-app-server"
     ami_id                 = null
