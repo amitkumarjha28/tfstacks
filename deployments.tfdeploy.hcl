@@ -7,7 +7,7 @@ deployment "prod" {
     environment            = "prod"
     region                 = "us-east-1"
     regions                = ["us-east-1"]
-    role_arn               = "arn:aws:iam::<account-id>:role/<hcp-terraform-role>"
+    role_arn               = "arn:aws:iam::795939425714:role/tfc-hashicorp-wwtfo-demo-platform-prod-hc-amit-kumarjha-role"
     identity_token         = identity_token.aws.jwt
     default_tags           = {
       Environment = "prod"
@@ -30,7 +30,7 @@ deployment "qa" {
     environment            = "qa"
     region                 = "us-west-2"
     regions                = ["us-west-2"]
-    role_arn               = "arn:aws:iam::<account-id>:role/<hcp-terraform-role>"
+    role_arn               = "arn:aws:iam::795939425714:role/tfc-hashicorp-wwtfo-demo-platform-qa-hc-amit-kumarjha-role"
     identity_token         = identity_token.aws.jwt
     default_tags           = {
       Environment = "qa"
